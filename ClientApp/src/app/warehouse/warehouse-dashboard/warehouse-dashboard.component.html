@@ -1,0 +1,39 @@
+<section class="container">
+
+  <h1 class="middle-line">Warehouses</h1>
+
+  <div class="my-3">
+    <div class="row justify-content-end ">
+    </div>
+
+    <ng-container *ngIf="warehouses;else no_warehouses">
+      <table class="table table-dark table-hover table-bordered mt-3">
+        <thead class="thead-sticky">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Symbol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let warehouse of warehouses; let i = index">
+            <td scope="row">{{i+1}}</td>
+            <td>{{warehouse.name}}</td>
+            <td>{{warehouse.symbol}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    <ng-template #no_warehouses>
+      <div class="alert alert-primary mt-5" role="alert">
+        No warehouses!
+      </div>
+    </ng-template>
+
+    <div class="row justify-content-start">
+      <a routerLink="" class="col-4 mx-2 btn btn-secondary">Back</a>
+    </div>
+
+  </div>
+</section>

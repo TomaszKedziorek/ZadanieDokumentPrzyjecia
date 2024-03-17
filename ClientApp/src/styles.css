@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.shadow-effect {
+  border: none;
+  box-shadow: 0px 0px 18px -6px rgba(var(--bs-tertiary-color-rgb), 0.5);
+}
+
+.card.shadow-effect {
+  cursor: pointer;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+.card.shadow-effect:hover {
+  transform: scale(1.05, 1.05);
+  box-shadow: 0px 0px 12px -6px rgba(var(--bs-tertiary-color-rgb), 0.5);
+}
+
+.middle-line {
+  display: flex;
+  align-items: center;
+  text-align: center !important;
+}
+
+.middle-line::before,
+.middle-line::after {
+  content: '';
+  flex: 1;
+  border-top: 2px solid var(--bs-body-color);
+}
+
+.middle-line:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.middle-line:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+th {
+  background-color: var(--bs-tertiary-bg) !important;
+  position: sticky;
+  top: 4.0rem;
+  z-index: 10;
+}

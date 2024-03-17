@@ -1,0 +1,6 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 0.8px solid var(--bs-border-color);
+}

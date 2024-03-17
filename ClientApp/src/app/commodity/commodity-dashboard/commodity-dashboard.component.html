@@ -1,0 +1,50 @@
+<section class="container">
+
+  <h1 class="middle-line">Commodities</h1>
+
+  <div class="my-3">
+    <div class="row justify-content-end ">
+      <a routerLink="new" class="col-4 btn btn-success mx-2">Create New</a>
+    </div>
+
+    <ng-container *ngIf="commodities;else no_commodities">
+      <table class="table table-dark table-hover table-bordered mt-3">
+        <thead class="thead-sticky">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let commodity of commodities; let i = index">
+            <td scope="row">{{i+1}}</td>
+            <td>{{commodity.name}}</td>
+            <td>{{commodity.code}}</td>
+            <td>{{commodity.quantity}}</td>
+            <td>{{commodity.price|currency}}</td>
+            <td>
+              <div class="d-flex justify-content-center">
+                <a [routerLink]="['/commodities/edit',commodity.id]" class=" btn btn-success">Edit</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    <ng-template #no_commodities>
+      <div class="alert alert-primary mt-5" role="alert">
+        No comodities!
+      </div>
+    </ng-template>
+
+    <div class="row justify-content-start">
+      <a routerLink="" class="col-4 mx-2 btn btn-secondary">Back</a>
+    </div>
+
+  </div>
+</section>

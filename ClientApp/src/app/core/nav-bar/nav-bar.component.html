@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark"
+  [attr.data-bs-theme]="isLightTheme?'light':'dark'">
+  <div class="container-fluid mx-3">
+    <a class="navbar-brand" routerLink="/">
+      <h2>{{title}}</h2>
+    </a>
+
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-uppercase" [collapse]="isCollapsed" [isAnimated]="true"
+      style="font-size: large;">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"> <a class="nav-link" routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">Home</a> </li>
+        <li class="nav-item"> <a class="nav-link" routerLink="/">About</a> </li>
+      </ul>
+
+      <div class="form-check form-switch theme-switch">
+        <input [checked]="isLightTheme" (change)="onThemeSwitch()" type="checkbox" id="themeCheckbox"
+          class="form-check-input rounded-5 bg-secondary" [ngClass]="{'border-dark':isLightTheme}">
+        <label class="form-check-label" for="themeCheckbox">
+          <i *ngIf="!isLightTheme" class="bi bi-moon-stars-fill"></i>
+          <i *ngIf="isLightTheme" class="bi bi-brightness-high-fill"></i>
+        </label>
+      </div>
+
+    </div>
+  </div>
+</nav>
